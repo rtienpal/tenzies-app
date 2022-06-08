@@ -7,15 +7,15 @@ export default function App() {
   const [tenzies, setTenzies] = React.useState(false);
   const [rollCount, setRollCount] = React.useState(0);
   const [prevRollCount, setPrevRollCount] = React.useState(0);
-  const [rollCountRecord, setRollCountRecord] = React.useState(0);
+  const [rollCountRecord, setRollCountRecord] = React.useState(JSON.parse(localStorage.getItem("rollCountRecord")) || 0);
   console.log(rollCountRecord);
 
-  /*
+  
 
   React.useEffect(() => {
-    localStorage.setItem("rollCountRecord", rollCountRecord);
+    localStorage.setItem("rollCountRecord", JSON.stringify(rollCountRecord));
   }, [rollCountRecord]);
-  */
+  
 
   React.useEffect(() => {
     if (diceNumbers.every((die) => die.fixed)) {
